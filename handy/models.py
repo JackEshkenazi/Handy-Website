@@ -1,5 +1,8 @@
 from django.db import models
 
+class City(models.Model):
+        name = models.CharField(max_length=30)
+
 class Contractor(models.Model):
     """Model representing a contractor (but not a specific business card)."""
     name = models.CharField(max_length = 100)
@@ -12,7 +15,7 @@ class Contractor(models.Model):
     
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    #city = models.ManyToManyField(City, help_text='Select a city')
+    city = models.ManyToManyField(City)
     
     def __str__(self):
         """String for representing the Model object."""

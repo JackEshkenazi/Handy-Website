@@ -1,20 +1,11 @@
-
+<! -- {% extends 'base.html' %} -- >
 
 {% load static %}
 
 <!DOCTYPE HTML>
-<html lang = "en">
-<head>
-  	<meta charset="UTF-8">
-    <title>Handy - The placeeeee to find all your handy man and home service needs</title>
-    <meta charset = "UTF-8" />
-    <style type="text/css"></style>
- 	<nav class="navbar main-nav navbar-fixed-top black-header">
-					<div class="container-fluid">
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-  </head>
 
 
+  {% block content %}
 
   <body>
   <header>
@@ -43,12 +34,11 @@
 
 	<tr>
 		<td><strong>{{ record }}</strong></td>
-		<td>HELLO?</td>
 	</tr>
 
 {%endfor%}
 
-
+{% endblock %}
 
 </div>
 </header>

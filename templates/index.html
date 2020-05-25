@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+
 
 {% load static %}
 
@@ -6,7 +6,7 @@
 <html lang = "en">
 <head>
   	<meta charset="UTF-8">
-    <title>Handy - The place to find all your handy man and home service needs</title>
+    <title>Handy - The placeeeee to find all your handy man and home service needs</title>
     <meta charset = "UTF-8" />
     <style type="text/css"></style>
  	<nav class="navbar main-nav navbar-fixed-top black-header">
@@ -39,7 +39,14 @@
 		<li><a href="#">Search</a></li>
     </ul>
     
+{% for record in data  %}
 
+	<tr>
+		<td><strong>{{ record }}</strong></td>
+		<td>HELLO?</td>
+	</tr>
+
+{%endfor%}
 
 
 

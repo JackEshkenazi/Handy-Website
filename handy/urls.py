@@ -31,4 +31,5 @@ urlpatterns = [
     ),
 
     path('Home', views.index, name='index'),
+    path('contact/', views.contact, name='contact'),
 ]

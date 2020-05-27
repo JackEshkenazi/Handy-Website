@@ -1,4 +1,4 @@
-<! -- {% extends 'base.html' %} -- >
+{% extends 'base.html' %}
 
 {% load static %}
 
@@ -26,14 +26,14 @@
 				</ul>
 			</div>
 		</li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="/contact">Contact</a></li>
 		<li><a href="#">Search</a></li>
     </ul>
     
 {% for record in data  %}
 
 	<tr>
-		<td><strong>{{ record }}</strong></td>
+		<td><a href="#"></a>{{ record }}</a></td>
 	</tr>
 
 {%endfor%}

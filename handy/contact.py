@@ -16,11 +16,11 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-         # assert False
+            #assert False
             return HttpResponseRedirect('/contact?submitted=True')
-     else:
+    else:
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
  
-    return render(request, 'contact/contact.html', {'form': form, 'submitted': submitted})
+    return render(request, 'contact.html', {'form': form, 'submitted': submitted})

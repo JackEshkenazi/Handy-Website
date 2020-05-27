@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth import views as auth_views
+from . import contact
 
 from . import views
 
 urlpatterns = [
+    path('contact/', contact.contact, name='contact'),
+
     path('admin/', admin.site.urls),
 
     path(
@@ -31,5 +34,5 @@ urlpatterns = [
     ),
 
     path('Home', views.index, name='index'),
-    path('contact/', views.contact, name='contact'),
+    
 ]

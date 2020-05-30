@@ -51,7 +51,6 @@ body {
 	width: 100%;
 }
 
-
 .dropdown1{
 	display: none;
 	background-color: #ff9900;
@@ -74,8 +73,11 @@ body {
 	background: #ff9900;
 }
 
-.card {
+.business > .card{
+	background: #ff9900;
 	text-align: center;
 	padding-right: 50px;
 	text-decoration: dotted;
+	border: 1px solid black;
 }
+

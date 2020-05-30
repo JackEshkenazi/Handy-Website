@@ -1,9 +1,13 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-{% block title %}Contact Usssss{% endblock title %}
+
+
+{% block mainpage %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'contact.css' %}">
 
-{% block content %}
 <h1>Contact us to list your business on the handy website</h1>
  
 {% if submitted %}
@@ -23,4 +27,4 @@ Your message was submitted successfully. Thank you.
      {% csrf_token %}
      </form>
  {% endif %}
- {% endblock content %}
+ {% endblock mainpage %}

@@ -4,43 +4,23 @@
 
 <!DOCTYPE HTML>
 
-
-  {% block content %}
-
   <body>
   <header>
-  <div class = "container">
-  	<ul class="nav">
-  		<h1 class="logo">HANDY</h1>
-	  	<li class = "active"><a href="#">Home</a></li>
-		<li><a href="#">Search By Speciality</a>
-			<div>
-				<ul class = "dropdown1">
-					<li><a href="#">Electrical</a></li>
-					<li><a href="#">Plumbing</a></li>
-					<li><a href="#">HVac</a></li>
-					<li><a href="#">Windows</a></li>
-					<li><a href="#">Doors</a></li>
-					<li><a href="#">Kitchen</a></li>
-					<li><a href="#">Bathroom</a></li>	
-				</ul>
-			</div>
-		</li>
-		<li><a href="/contact">Contact</a></li>
-		<li><a href="#">Search</a></li>
-    </ul>
+
+{% block mainpage %}	
     
 {% for record in data  %}
 
 	<tr>
-		<td><a href="#"></a>{{ record }}</a></td>
+		<td class = "card"><a href="#"></a>{{ record }}</a></td>
 	</tr>
 
 {%endfor%}
 
 {% endblock %}
 
-</div>
+
 </header>
 </body>
+
 </html>

@@ -73,3 +73,9 @@ body {
 	position: absolute;
 	background: #ff9900;
 }
+
+.card {
+	text-align: center;
+	padding-right: 50px;
+	text-decoration: dotted;
+}

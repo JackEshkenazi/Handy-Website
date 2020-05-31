@@ -5,16 +5,14 @@ from handy.models import Contractor
 
 def index(request):
     
-    data = Contractor.objects.all()
-    #print(data[1].name)
-    #print(data[2].name)
+  data = Contractor.objects.all()
 
-    context={
-      'data': data
-    }
+  context={
+    'data': data
+  }
 
-    return render(request, 'index.html', context)
+  return render(request, 'index.html', context)
 
 def contact(request):
 
-    return render(request, 'contact.html')
+  return render(request, 'contact.html')

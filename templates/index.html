@@ -3,25 +3,26 @@
 {% load static %}
 
 <!DOCTYPE HTML>
+<body>
+<head>
 
-  <body>
-  <header>
+{% block mainpage %}
 
-{% block mainpage %}	
-    
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+<div class = cards>
+
 {% for record in data  %}
-<div class = business>
-	<tr>
-		<td class = "card"><a href="#"></a>{{ record }}</a></td>
-	</tr>
-</div>
-
+<li class = "card">
+	<a href=#>{{ record }}</a>
+</li>
 {%endfor%}
 
-{% endblock mainpage %}
+</div>
 
+{% endblock %}
 
-</header>
+</head>
 </body>
 
 </html>

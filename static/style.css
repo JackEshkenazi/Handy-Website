@@ -4,6 +4,7 @@ body {
 	font-family: 'Calibri', serif;
 }
 
+
 .logo{
 	margin:0;
 	float: left;
@@ -72,12 +73,3 @@ body {
 	position: absolute;
 	background: #ff9900;
 }
-
-.business > .card{
-	background: #ff9900;
-	text-align: center;
-	padding-right: 50px;
-	text-decoration: dotted;
-	border: 1px solid black;
-}
-

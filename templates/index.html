@@ -12,11 +12,16 @@
 
 <div class = cards>
 
+<ul class = "card">
 {% for record in data  %}
-<li class = "card">
-	<a href=#>{{ record }}</a>
-</li>
+<div class = "info">
+	<li><a href=#>{{ record.name }}</a></li>
+	<li><a href=#>{{ record.phone }}</a></li>
+	<li><a href=#>{{ record.email }}</a></li>
+	<li><a href=#>{{ record.city }}</a></li>
+</div>
 {%endfor%}
+</ul>
 
 </div>
 

@@ -1,19 +1,23 @@
-.card {
+.card > .info{
+    list-style: none;
 	text-align: center;
     padding-top: 50px;
-    list-style: none;
-    align-items: center;
 
 }
 
-.card > a{
-    text-decoration: none;
-    color: black;
+.info > li{
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: #e5e5e5;
     height: 100px;
-    width:70%;
     border-radius: 25px;
+}
+
+
+.info > li > a{
+    text-decoration: none;
+    list-style: none;
+    color: black
+    
 }

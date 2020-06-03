@@ -51,6 +51,7 @@ body {
 }
 .nav > li > a:hover::before {
 	width: 100%;
+	background-color: #c1c1c1;
 }
 
 .dropdown1{

@@ -1,13 +1,19 @@
 .card {
 	text-align: center;
-	padding-top: 50px;
-}
-
-.cards > .card{
+    padding-top: 50px;
     list-style: none;
+    align-items: center;
+
 }
 
 .card > a{
     text-decoration: none;
     color: black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e5e5;
+    height: 100px;
+    width:70%;
+    border-radius: 25px;
 }

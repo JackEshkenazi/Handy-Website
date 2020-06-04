@@ -9,6 +9,8 @@
    --secondary: #1effc3;
    
    --card-size: 400px;
+
+   --card-height: 120px;
 }
 
 body {
@@ -27,10 +29,10 @@ body {
    border-radius: 0.75rem;
    box-shadow:  0 22px 70px 4px rgba(59, 59, 59, 0.56), 0 0 0 1px rgba(61, 61, 61, 0.3);
    
-   background: #c5c5c5;
+   background: #ececec;
    
    display: grid;
-   color: white;
+   color: black;
    
    align-items: center;
    justify-items: top;
@@ -50,7 +52,7 @@ body {
    place-items: top;
    align-items: center;
 
-   margin: auto;
+   margin-top: calc((var(--card-height)) * (-1));
 
 }
 

@@ -7,7 +7,7 @@ def index(request):
     
   data = Contractor.objects.all()
 
-  print(data[2])
+  #print(data[2])
 
   context={
     'data': data

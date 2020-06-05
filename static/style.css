@@ -60,6 +60,7 @@ body {
 	color: #ffffff;
 	list-style: none;
 	padding-right: 35px;
+	z-index:1;
 }
 .dropdown1 > li{
 	padding-top: 20px;

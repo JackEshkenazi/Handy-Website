@@ -11,19 +11,23 @@
    --card-size: 400px;
 
    --card-height: 120px;
+   
 }
 
 body {
    height: 100vh;
    margin: 0;
    place-items: top;
+
+   font-family: 'Calibri', serif;
    
-   text-rendering: optimizelegibility;
-   -webkit-font-smoothing: antialiased;
+   text-rendering: geometricPrecision;
+   backface-visibility: hidden;
 }
 
 .card { 
-   width: calc(var(--card-size) * 1.586);
+
+   width: calc(var(--card-size) * 1.85);
    margin:auto;
 
    border-radius: 0.75rem;
@@ -40,12 +44,17 @@ body {
    will-change: transform;
    transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
    
-
-   &:hover {
-      transform: scale(1.1);
-      box-shadow: 0 32px 80px 14px rgba(0,0,0,0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
-   }
+   margin-bottom: 15px;
 }
+
+.card:hover {
+   backface-visibility: hidden;
+   transform: translateZ(0);
+   -webkit-transform: scale(1.1);
+   box-shadow: 0 32px 80px 14px rgba(0,0,0,0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
+
+   }
+
 
 .card-details {
    padding: 1rem;
@@ -53,7 +62,6 @@ body {
    align-items: center;
 
    margin-top: calc((var(--card-height)) * (-1));
-
 }
 
 .name {
@@ -106,15 +114,16 @@ svg {
    flex-direction: column;
    margin-top: 0.75rem;
    
-   .label {
+}
+
+.skills > .label {
       font-size: 1rem;
       font-weight: 600;
       color: var(--primary);
    }
    
-   .value {
+.skills > .value {
       margin-top: 0.15rem;
       font-size: 0.75rem;
       line-height: 1.25rem;
    }
-}

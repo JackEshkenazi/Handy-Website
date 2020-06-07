@@ -1,7 +1,10 @@
 from django.db import models
 
 class City(models.Model):
-        name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
 
 class Contractor(models.Model):
     """Model representing a contractor (but not a specific business card)."""
@@ -15,7 +18,7 @@ class Contractor(models.Model):
     
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    city = models.ManyToManyField(City)
+    city = models.ManyToManyField(City) #if needed put "through = 'Location'"
     
     def __str__(self):
         """String for representing the Model object."""
@@ -26,4 +29,7 @@ class Contractor(models.Model):
         return reverse('contractor-detail', args=[str(self.id)])
         """for this have to define a URL mapping that has the name contractor-detail, and define an associated view and template"""
 
-
+'''class Location(models.Model):
+    contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    THIS IS IF YOU NEED TO ADD ANOTHER PROPERTY'''

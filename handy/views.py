@@ -5,12 +5,15 @@ from handy.models import Contractor
 
 def index(request):
     
-  data = Contractor.objects.all()
+  dataContractors = Contractor.objects.all()
+
+  dataCities = Contractor.city.through.objects.all()
 
   #print(data[2])
 
   context={
-    'data': data
+    "data": dataContractors,
+    "cities": dataCities
   }
 
   return render(request, 'index.html', context)

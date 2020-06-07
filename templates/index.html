@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
 
 
-{% for record in data  %}
+{% for contractor in data  %}
 
 </div>
 
@@ -18,22 +18,22 @@
    </div>
    <div class="card-details">
 	   
-	  <div class="name">{{ record.name }}</div>
+	  <div class="name">{{ contractor.name }}</div>
 	  
       <div class="occupation">NOT DONE YET (occupation here)</div>
       
       <div class="card-about">
 		
 		<div class="item">
-            <span class="value">{{ record.phone }}</span>
+            <span class="value">{{ contractor.phone }}</span>
             <span class="label">Phone</span>
 		 </div>
          <div class="item">
-            <span class="value">{{ record.email }} </span>
+            <span class="value">{{ contractor.email }} </span>
             <span class="label">Email</span>
 		 </div>
          <div class="item">
-            <span class="value">{{ record.city }}</span>
+            <span class="value">{{ cities.contractor_id }}</span>
             <span class="label">City</span>
 		 </div>
 

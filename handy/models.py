@@ -22,7 +22,7 @@ class Contractor(models.Model):
     
     def __str__(self):
         """String for representing the Model object."""
-        return str(self.name) + " " + str(self.city.name)
+        return str(self.name) + " " + str(self.city)
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this contractor."""

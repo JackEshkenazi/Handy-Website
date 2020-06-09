@@ -5,12 +5,14 @@ from handy.models import Contractor, City
 from django.db.models.functions import Concat
 from django.db.models import Aggregate, CharField, Value
 from django.db import connection
+from django.db.models import Q
 
 class Card:
   name: str
   phone: str
   email: str
   cities = []
+  
   def __init__(self, name, phone, email, cities):
     self.name = name
     self.phone = phone
@@ -26,16 +28,16 @@ def index(request):
     ON hcc.contractor_id = hc.id 
     LEFT JOIN handy_city AS hcity ON
     hcc.city_id = hcity.id GROUP BY hc.name, hc.phone, hc.email''')
+
   cards = dict()
   query_result = cursor.fetchall()
+
   for row in query_result:
     try:
       cities = row[4].split(",")
     except:
       cities = []
     cards[row[0]] = Card(row[1], row[2], row[3], cities)
-
-  print(cards)
 
   context={
     "data": cards
@@ -46,3 +48,19 @@ def index(request):
 def contact(request):
 
   return render(request, 'contact.html')
+
+
+def search(query):
+  queryset = []
+  queries = query.split()
+
+  for q in queries:
+    posts = Contractor.objects.filter(
+      Q(title_icontains=q) |
+      Q(body_icontains=q)
+    ).distinct()
+
+    for post in posts:
+      queryset.append(post)
+  return list(set(queryset))
+

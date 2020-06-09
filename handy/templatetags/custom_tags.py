@@ -3,9 +3,12 @@ from django import template
 register = template.Library()
 
 @register.filter
-def strip_list(list):
-    between = ", "
-    
-    return (between.join(list))
+def print_list(list):
 
-register.filter('strip_list', strip_list)
+    if (len(list) == 0):
+        return "No listed cities"
+
+    else:
+        between = ", "
+        return (between.join(list))
+

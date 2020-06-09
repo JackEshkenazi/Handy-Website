@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
 
 
-{% for card.items in data.items %}
+{% for card in data.items %}
 </div>
 
 <div class="card">
@@ -17,22 +17,22 @@
    </div>
    <div class="card-details">
 	   
-	  <div class="name">{{ name }}</div>
+	  <div class="name">{{ card.1.name }}</div>
 	  
       <div class="occupation">NOT DONE YET (occupation here)</div>
       
       <div class="card-about">
 		
 		<div class="item">
-            <span class="value">{{ card.phone }}</span>
+            <span class="value">{{ card.1.phone }}</span>
             <span class="label">Phone</span>
 		 </div>
          <div class="item">
-            <span class="value">{{ card.email }} </span>
+            <span class="value">{{ card.1.email }} </span>
             <span class="label">Email</span>
 		 </div>
          <div class="item">
-            <span class="value">{{ card.cities }}</span>
+            <span class="value">{{ card.1.cities }}</span>
             <span class="label">City</span>
 		 </div>
 

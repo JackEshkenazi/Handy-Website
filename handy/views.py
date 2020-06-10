@@ -21,6 +21,12 @@ class Card:
 
 
 def index(request):
+  query = ''
+  if request.GET:
+    query = request.GET['q']
+    search = str(query)
+
+
   cursor = connection.cursor()
   cursor.execute('''SELECT hc.id AS id, hc.name, hc.phone, hc.email,  group_concat(hcity.name, ',') AS cities 
     FROM handy_contractor AS hc 

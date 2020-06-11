@@ -7,19 +7,19 @@ from django.db.models import Aggregate, CharField, Value
 from django.db import connection
 from django.db.models import Q
 
-def search(query):
+def search_db(query):
   queryset = []
   queries = query.split()
 
   for q in queries:
     posts = Contractor.objects.filter(
-      Q(title_icontains=q) |
-      Q(body_icontains=q)
+      Q(name=q) |
+      Q(email=q)
     ).distinct()
 
     for post in posts:
       queryset.append(post)
-  return list(set(queryset))
+  return queryset
 
 class Card:
   name: str
@@ -61,7 +61,7 @@ def index(request):
 
   if(query):
     context={
-    "data": search
+    "data": search_db(search)
     }
 
   else:

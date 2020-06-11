@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include,path
 
+from handy import views
+
 urlpatterns = [
     #path('admin/', admin.site.urls),
     #YOU PROBABLY WANT TO MOVE THE ADMIN URL PATTERNS HERE
     
     path('', include("handy.urls")), 
+    
+    #path('contact/', views.contact, name='contact'),
 ]

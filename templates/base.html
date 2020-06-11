@@ -1,5 +1,6 @@
 {% load static %}
 
+{% block content %}
 
 <!DOCTYPE HTML>
 <html lang = "en">
@@ -12,9 +13,6 @@
 					<div class="container-fluid">
 	<link rel="stylesheet" href="/static/style.css?{% now "U" %}"/>
   </head>
-
-
-  {% block content %}
 
   <body>
   <header>
@@ -55,3 +53,7 @@
 {% block mainpage %}
 {% endblock %}
 </html>
+
+<script type = "text/javascript">
+	document.getElementById("id_q").value = "{{query}}"
+</script>

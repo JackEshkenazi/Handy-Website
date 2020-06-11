@@ -7,6 +7,20 @@ from django.db.models import Aggregate, CharField, Value
 from django.db import connection
 from django.db.models import Q
 
+def search(query):
+  queryset = []
+  queries = query.split()
+
+  for q in queries:
+    posts = Contractor.objects.filter(
+      Q(title_icontains=q) |
+      Q(body_icontains=q)
+    ).distinct()
+
+    for post in posts:
+      queryset.append(post)
+  return list(set(queryset))
+
 class Card:
   name: str
   phone: str
@@ -21,7 +35,7 @@ class Card:
 
 
 def index(request):
-  query = ''
+  query = ""
   if request.GET:
     query = request.GET['q']
     search = str(query)
@@ -45,28 +59,16 @@ def index(request):
       cities = []
     cards[row[0]] = Card(row[1], row[2], row[3], cities)
 
-  context={
-    "data": cards
-  }
+  if(query):
+    context={
+    "data": search
+    }
+
+  else:
+    context={
+      "data": cards
+    }
 
   return render(request, 'index.html', context)
 
-def contact(request):
-
-  return render(request, 'contact.html')
-
-
-def search(query):
-  queryset = []
-  queries = query.split()
-
-  for q in queries:
-    posts = Contractor.objects.filter(
-      Q(title_icontains=q) |
-      Q(body_icontains=q)
-    ).distinct()
-
-    for post in posts:
-      queryset.append(post)
-  return list(set(queryset))
 

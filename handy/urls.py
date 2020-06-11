@@ -1,11 +1,19 @@
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth import views as auth_views
+
+from django.conf.urls import include, url
+from django.conf import settings
+from django.conf.urls.static import static
+
 from . import contact
 
 from . import views
 
 urlpatterns = [
+
+    path('Home/', views.index, name='index'),
+    
     path('contact/', contact.contact, name='contact'),
 
     path('admin/', admin.site.urls),
@@ -31,8 +39,6 @@ urlpatterns = [
     'reset/done/',
     auth_views.PasswordResetCompleteView.as_view(),
     name='password_reset_complete',
-    ),
-
-    path('Home', views.index, name='index'),
+    )
     
 ]

@@ -12,21 +12,35 @@ class ContactForm(forms.Form):
  
  
 def contact(request):
-    submitted = False
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            #assert False
-            con = get_connection('django.core.mail.backends.console.EmailBackend')
-            send_mail(cd['subject'],cd['message'],cd.get('email', 'jack.eshkenazi@gmail.com'),['jack.eshkenazi@gmail.com'],connection=con)
-            #for an actual email, you can pass a real backend in the connection argument
+    query = ""
+    if request.GET:
+        query = request.GET['q']
+        search = str(query)
 
-            return HttpResponseRedirect('/contact?submitted=True')
+    if(query != ""):
+        context={
+        "data": search
+        }
+        print("FFFFFFF")
+        return render(request, 'index.html', context)
+    
+    elif(query==""):
+        
+        submitted = False
+        if request.method == 'POST':
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                cd = form.cleaned_data
+                #assert False
+                con = get_connection('django.core.mail.backends.console.EmailBackend')
+                send_mail(cd['subject'],cd['message'],cd.get('email', 'jack.eshkenazi@gmail.com'),['jack.eshkenazi@gmail.com'],connection=con)
+                #for an actual email, you can pass a real backend in the connection argument
 
-    else:
-        form = ContactForm()
-        if 'submitted' in request.GET:
-            submitted = True
- 
-    return render(request, 'contact.html', {'form': form, 'submitted': submitted})
+                return HttpResponseRedirect('/contact?submitted=True')
+
+        else:
+            form = ContactForm()
+            if 'submitted' in request.GET:
+                submitted = True
+    
+        return render(request, 'contact.html', {'form': form, 'submitted': submitted})

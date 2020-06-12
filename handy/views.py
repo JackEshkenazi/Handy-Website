@@ -7,20 +7,6 @@ from django.db.models import Aggregate, CharField, Value
 from django.db import connection
 from django.db.models import Q
 
-def search_db(query):
-  queryset = []
-  queries = query.split()
-
-  for q in queries:
-    posts = Contractor.objects.filter(
-      Q(name=q) |
-      Q(email=q)
-    ).distinct()
-
-    for post in posts:
-      queryset.append(post)
-  return queryset
-
 class Card:
   name: str
   phone: str
@@ -33,6 +19,35 @@ class Card:
     self.email = email
     self.cities = cities
 
+
+
+def search_db(query):
+  print("HEEERE")
+  cards=dict()
+
+  query_result = []
+  queries = query.split()
+
+  for q in queries:
+    posts = Contractor.objects.filter(
+      Q(name=q) |
+      Q(email=q)
+    ).distinct()
+    print(posts)
+
+    for post in posts:
+      query_result.append(post)
+  
+  for row in query_result:
+    print(row)
+    try:
+      cities = row[4].split(",")
+    except:
+      cities = []
+    cards[row[0]] = Card(row[1], row[2], row[3], cities)
+
+
+  return cards
 
 def index(request):
   query = ""

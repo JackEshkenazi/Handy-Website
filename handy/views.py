@@ -22,14 +22,12 @@ class Card:
 
 
 def search_db(query):
-  print("HEEERE")
   cards=dict()
 
   query_result = []
   queries = query.split()
 
   for q in queries:
-    print(q)
     posts = Contractor.objects.filter(name__startswith=q)
     print(posts)
 
@@ -37,13 +35,11 @@ def search_db(query):
       query_result.append(post)
   
   for row in query_result:
-    print(row)
     try:
       cities = row[4].split(",")
     except:
       cities = []
     cards[row.id] = Card(row.name, row.email, row.phone, cities)
-
 
   return cards
 

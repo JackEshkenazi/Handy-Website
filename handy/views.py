@@ -29,10 +29,8 @@ def search_db(query):
   queries = query.split()
 
   for q in queries:
-    posts = Contractor.objects.filter(
-      Q(name=q) |
-      Q(email=q)
-    ).distinct()
+    print(q)
+    posts = Contractor.objects.filter(name__startswith=q)
     print(posts)
 
     for post in posts:
@@ -44,7 +42,7 @@ def search_db(query):
       cities = row[4].split(",")
     except:
       cities = []
-    cards[row[0]] = Card(row[1], row[2], row[3], cities)
+    cards[row.id] = Card(row.name, row.email, row.phone, cities)
 
 
   return cards

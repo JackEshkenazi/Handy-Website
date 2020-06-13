@@ -2,6 +2,8 @@ from django import forms
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
+
+from . import views
   
   
 class ContactForm(forms.Form):
@@ -19,7 +21,7 @@ def contact(request):
 
     if(query != ""):
         context={
-        "data": search
+        "data": views.search_db(search)
         }
         print("FFFFFFF")
         return render(request, 'index.html', context)

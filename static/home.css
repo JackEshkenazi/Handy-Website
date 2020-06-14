@@ -25,7 +25,10 @@ body {
    backface-visibility: hidden;
 }
 
-.card { 
+.card {
+
+   list-style: none;
+   text-decoration: none;
 
    width: calc(var(--card-size) * 1.85);
    margin:auto;

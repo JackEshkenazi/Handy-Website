@@ -13,15 +13,17 @@
 {% for card in data.items %}
 </div>
 
-<div class="card">
+<a class="card" href = "contractor/{{ card.1.id }}">
+
    <div class="card-picture">
       <svg picture="0 0 208 278"></svg>
    </div>
+   
    <div class="card-details">
 	   
 	  <div class="name">{{ card.1.name }}</div>
 	  
-      <div class="occupation">NOT DONE YET (occupation here)</div>
+      <div class="occupation">NOT DONE YET (occupation here), but id = {{ card.1.id }}</div>
       
       <div class="card-about">
 		
@@ -44,7 +46,7 @@
          <span class="value">Missing description as attribute in databases, might turn this into reviews instead</span>
       </div>
    </div>
-</div>
+</a>
 
 {%endfor%}
 

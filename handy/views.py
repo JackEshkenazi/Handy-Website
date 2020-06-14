@@ -28,18 +28,23 @@ def search_db(query):
   queries = query.split()
 
   for q in queries:
-    posts = Contractor.objects.filter(name__startswith=q)
-    print(posts)
+    posts = Contractor.objects.filter(name__icontains=q)
 
     for post in posts:
       query_result.append(post)
   
   for row in query_result:
-    try:
-      cities = row[4].split(",")
-    except:
-      cities = []
-    cards[row.id] = Card(row.name, row.email, row.phone, cities)
+    id = row.id
+    contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=id)
+    city_ids = []
+    for c in contractor_city:
+      city_ids.append(c.city_id)
+
+    all_cities=[]
+    for c in city_ids:
+      all_cities.append((City.objects.only("name").get(id=c)).name)
+
+    cards[row.id] = Card(row.name, row.email, row.phone, all_cities)
 
   return cards
 

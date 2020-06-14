@@ -13,11 +13,12 @@ class Card:
   email: str
   cities = []
   
-  def __init__(self, name, phone, email, cities):
+  def __init__(self, name, phone, email, cities, occupation):
     self.name = name
     self.phone = phone
     self.email = email
     self.cities = cities
+    self.occupation = occupation
 
 
 
@@ -44,7 +45,7 @@ def search_db(query):
     for c in city_ids:
       all_cities.append((City.objects.only("name").get(id=c)).name)
 
-    cards[row.id] = Card(row.name, row.email, row.phone, all_cities)
+    cards[row.id] = Card(row.name, row.email, row.phone, all_cities, None)
 
   return cards
 
@@ -71,7 +72,7 @@ def index(request):
       cities = row[4].split(",")
     except:
       cities = []
-    cards[row[0]] = Card(row[1], row[2], row[3], cities)
+    cards[row[0]] = Card(row[1], row[2], row[3], cities, None)
 
   if(query):
     context={

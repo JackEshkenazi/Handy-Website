@@ -22,7 +22,13 @@ class Card:
     self.cities = cities
     self.occupation = occupation
 
+def dynamic_lookup_view(request,ID):
+  obj = Contractor.objects.get(id=ID)
+  context={
+    "object": obj
+  }
 
+  return render(request, contractor_page.html, context)
 
 def search_db(query):
   cards=dict()

@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static
+from handy.views import dynamic_lookup_view
 
 from . import contact
 
@@ -17,6 +18,8 @@ urlpatterns = [
     path('contact/', contact.contact, name='contact'),
 
     path('admin/', admin.site.urls),
+
+    path('contractor/<int:ID>', dynamic_lookup_view, name='contractor'),
 
     path(
     'admin/password_reset/',auth_views.PasswordResetView.as_view(),

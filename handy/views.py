@@ -28,7 +28,7 @@ def dynamic_lookup_view(request,ID):
     "object": obj
   }
 
-  return render(request, contractor_page.html, context)
+  return render(request, 'contractor_page.html', context)
 
 def search_db(query):
   cards=dict()

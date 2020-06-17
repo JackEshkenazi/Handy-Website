@@ -19,7 +19,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('contractor/<int:ID>', dynamic_lookup_view, name='contractor'),
+    path('contractor/<int:ID>', dynamic_lookup_view, name='dynamic_lookup_view'),
 
     path(
     'admin/password_reset/',auth_views.PasswordResetView.as_view(),

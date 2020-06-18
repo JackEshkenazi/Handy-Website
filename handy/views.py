@@ -24,8 +24,9 @@ class Card:
 
 def dynamic_lookup_view(request,ID):
   obj = Contractor.objects.get(id=ID)
+
   context={
-    "object": obj
+    "data": obj
   }
 
   return render(request, 'contractor_page.html', context)

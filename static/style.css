@@ -25,7 +25,7 @@ body {
 	position: fixed;
 	width: 100%;
 	z-index: 100;
-	align-self: top;
+	top:0;
 }
 
 .nav > li {

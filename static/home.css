@@ -25,6 +25,10 @@ body {
    backface-visibility: hidden;
 }
 
+.hold {
+   margin-top: 50px;
+}
+
 .card {
 
    list-style: none;

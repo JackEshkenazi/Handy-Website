@@ -4,6 +4,10 @@ body {
 	font-family: 'Calibri', serif;
 }
 
+.hold {
+	padding-top: 150px;
+	z-index:0;
+ }
 
 .logo{
 	color: #ffffff;
@@ -18,7 +22,6 @@ body {
 	width: 100%;
 	z-index: 100;
 	top:0;
-	padding-bottom: 150px;
 }
 
 .nav {

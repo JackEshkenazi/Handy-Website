@@ -25,10 +25,6 @@ body {
    backface-visibility: hidden;
 }
 
-.hold {
-   padding-top: 150px;
-}
-
 .card {
 
    list-style: none;

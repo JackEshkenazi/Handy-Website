@@ -23,10 +23,22 @@ class Card:
     self.occupation = occupation
 
 def dynamic_lookup_view(request,ID):
-  obj = Contractor.objects.get(id=ID)
+  contractor = Contractor.objects.get(id = ID)
+  
+  contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
+    
+  city_ids = []
+  for c in contractor_city:
+    city_ids.append(c.city_id)
+
+  all_cities=[]
+  for c in city_ids:
+    all_cities.append((City.objects.only("name").get(id=c)).name)
+
+  card = Card(contractor.id,contractor.name, contractor.email, contractor.phone, all_cities, None)
 
   context={
-    "data": obj
+    "data": card
   }
 
   return render(request, 'contractor_page.html', context)

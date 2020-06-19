@@ -13,6 +13,14 @@ body {
 	height: 50px;
 }
 
+.container{
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	top:0;
+	padding-bottom: 150px;
+}
+
 .nav {
 	background-color: #ff9900;
 	color: #ffffff;
@@ -22,10 +30,6 @@ body {
 	padding-top: 50px;
 	padding-bottom: 50px;
 	padding-right: 50px;
-	position: fixed;
-	width: 100%;
-	z-index: 100;
-	top:0;
 }
 
 .nav > li {

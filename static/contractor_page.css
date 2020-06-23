@@ -1,3 +1,21 @@
+:root {
+    --height: 20px;
+    
+ } 
+
 div {
     color: black;
+}
+
+h1{
+    margin-bottom:(var(--height));
+}
+h2{
+    margin-bottom:(var(--height));
+}
+h3{
+    margin-bottom:(var(--height));
+}
+h4{
+    margin-bottom:(var(--height));
 }

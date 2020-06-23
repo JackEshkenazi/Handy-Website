@@ -20,7 +20,7 @@ class Contractor(models.Model):
     # Genre class has already been defined so we can specify the object above.
     city = models.ManyToManyField(City) #if needed put "through = 'Location'"
 
-    #image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images')
     
     def __str__(self):
         """String for representing the Model object."""

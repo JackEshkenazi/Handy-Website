@@ -13,7 +13,7 @@ class Card:
   email: str
   cities = []
   
-  def __init__(self,id,name, phone, email, cities, occupation, image):
+  def __init__(self,id,name, phone, email, cities, image, occupation):
     
     self.id = id
     self.name = name
@@ -26,7 +26,7 @@ class Card:
 def dynamic_lookup_view(request,ID):
   contractor = Contractor.objects.get(id = ID)
   print("this")
-  print(contractor.image)
+  print(contractor.image.url)
   
   contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
     

@@ -15,14 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include,path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from handy import views
+from handy import contact
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     #YOU PROBABLY WANT TO MOVE THE ADMIN URL PATTERNS HERE
+
+    path('Home/', views.index, name='index'),
+    
+    path('contact/', contact.contact, name='contact'),
+
+    path('admin/', admin.site.urls),
+
+    path('contractor/<int:ID>', views.dynamic_lookup_view, name='dynamic_lookup_view'),
     
     path('', include("handy.urls")), 
     
     #path('contact/', views.contact, name='contact'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

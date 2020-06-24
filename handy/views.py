@@ -13,17 +13,20 @@ class Card:
   email: str
   cities = []
   
-  def __init__(self,id,name, phone, email, cities, occupation):
+  def __init__(self,id,name, phone, email, cities, occupation, image):
     
     self.id = id
     self.name = name
     self.phone = phone
     self.email = email
     self.cities = cities
+    self.image = image
     self.occupation = occupation
 
 def dynamic_lookup_view(request,ID):
   contractor = Contractor.objects.get(id = ID)
+  print("this")
+  print(contractor.image)
   
   contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
     
@@ -35,7 +38,7 @@ def dynamic_lookup_view(request,ID):
   for c in city_ids:
     all_cities.append((City.objects.only("name").get(id=c)).name)
 
-  card = Card(contractor.id,contractor.name, contractor.email, contractor.phone, all_cities, None)
+  card = Card(contractor.id,contractor.name, contractor.email, contractor.phone, all_cities, contractor.image, None)
 
   context={
     "data": card
@@ -67,7 +70,7 @@ def search_db(query):
     for c in city_ids:
       all_cities.append((City.objects.only("name").get(id=c)).name)
 
-    cards[row.id] = Card(row.id,row.name, row.email, row.phone, all_cities, None)
+    cards[row.id] = Card(row.id,row.name, row.email, row.phone, all_cities, row.image, None)
 
   return cards
 
@@ -94,7 +97,7 @@ def index(request):
       cities = row[4].split(",")
     except:
       cities = []
-    cards[row[0]] = Card(row[0],row[1], row[2], row[3], cities, None)
+    cards[row[0]] = Card(row[0],row[1], row[2], row[3], cities, row[4], None)
 
   if(query):
     context={

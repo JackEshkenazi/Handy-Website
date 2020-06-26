@@ -25,8 +25,6 @@ class Card:
 
 def dynamic_lookup_view(request,ID):
   contractor = Contractor.objects.get(id = ID)
-  print("this")
-  print(contractor.image.url)
   
   contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
     

@@ -7,7 +7,7 @@ class City(models.Model):
         return self.name
 
 class Contractor(models.Model):
-    """Model representing a contractor (but not a specific business card)."""
+    #Model representing a contractor (but not a specific business card).
     name = models.CharField(max_length = 100)
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
@@ -17,10 +17,9 @@ class Contractor(models.Model):
     email = models.TextField(max_length=100, help_text='Enter email')
     
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
-    # Genre class has already been defined so we can specify the object above.
     city = models.ManyToManyField(City) #if needed put "through = 'Location'"
 
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', null = True)
     
     def __str__(self):
         """String for representing the Model object."""

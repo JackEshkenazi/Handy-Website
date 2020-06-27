@@ -73,6 +73,10 @@ def search_db(query):
   return cards
 
 def index(request):
+
+  if request.user.is_authenticated:
+    print("Logged in")
+
   query = ""
   if request.GET:
     query = request.GET['q']

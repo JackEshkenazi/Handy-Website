@@ -34,6 +34,8 @@ urlpatterns = [
     path('contractor/<int:ID>', views.dynamic_lookup_view, name='dynamic_lookup_view'),
     
     path('', include("handy.urls")), 
+
+    path('', include("django.contrib.auth.urls"))
     
     #path('contact/', views.contact, name='contact'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

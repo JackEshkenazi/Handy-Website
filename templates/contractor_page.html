@@ -4,22 +4,28 @@
 
 {% load custom_tags %}
 
-{% block mainpage %}
+{% if user.is_authenticated %}
+    {% block mainpage %}
 
-<link rel="stylesheet" href="/static/contractor_page.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/contractor_page.css?{% now "U" %}"/>
 
-<div>
+    <div>
 
-<h1>{{data.name}}</h1>
-<h2>{{data.phone}}</h2>
-<h3>{{data.email}}</h3>
-<h4>{{data.cities|print_list}}</h4>
+    <h1>{{data.name}}</h1>
+    <h2>{{data.phone}}</h2>
+    <h3>{{data.email}}</h3>
+    <h4>{{data.cities|print_list}}</h4>
 
-{% if data.image %}
-<img src = "{{data.image.url}}" alt="connect">
+    {% if data.image %}
+    <img src = "{{data.image.url}}" alt="connect">
+    {% endif %}
+
+    </div>
+
+
+    {% endblock %}
+
+{% else %}
+    <p>Please<a href="/login">Login</a></p> 
+
 {% endif %}
-
-</div>
-
-
-{% endblock %}

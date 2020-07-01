@@ -2,6 +2,11 @@
 
 {% block mainpage %}
 
-
+    <form method = "post" class = "form-group">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn_success"> login </button>
+        <p> Don't have an account? Create one <a href="/register">here</a></p>
+    </form>
 
 {% endblock %}

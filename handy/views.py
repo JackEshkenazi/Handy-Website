@@ -24,21 +24,30 @@ class Card:
     self.occupation = occupation
 
 def dynamic_lookup_view(request,ID):
-  contractor = Contractor.objects.get(id = ID)
-  
-  contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
+  card = None
+
+  if request.user.is_authenticated:
+    is_user = True
+  else:
+    is_user= False
+
+  if (is_user):
+    contractor = Contractor.objects.get(id = ID)
     
-  city_ids = []
-  for c in contractor_city:
-    city_ids.append(c.city_id)
+    contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)
+      
+    city_ids = []
+    for c in contractor_city:
+      city_ids.append(c.city_id)
 
-  all_cities=[]
-  for c in city_ids:
-    all_cities.append((City.objects.only("name").get(id=c)).name)
+    all_cities=[]
+    for c in city_ids:
+      all_cities.append((City.objects.only("name").get(id=c)).name)
 
-  card = Card(contractor.id,contractor.name, contractor.email, contractor.phone, all_cities, contractor.image, None)
+    card = Card(contractor.id,contractor.name, contractor.email, contractor.phone, all_cities, contractor.image, None)
 
   context={
+    "user": is_user,
     "data": card
   }
 
@@ -73,9 +82,6 @@ def search_db(query):
   return cards
 
 def index(request):
-
-  if request.user.is_authenticated:
-    print("Logged in")
 
   query = ""
   if request.GET:

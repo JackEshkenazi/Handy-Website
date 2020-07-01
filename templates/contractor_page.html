@@ -4,7 +4,7 @@
 
 {% load custom_tags %}
 
-{% if request.user.is_authenticated %}
+{% if user %}
     {% block mainpage %}
 
     <link rel="stylesheet" href="/static/contractor_page.css?{% now "U" %}"/>

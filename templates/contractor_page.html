@@ -4,28 +4,34 @@
 
 {% load custom_tags %}
 
+{% block mainpage %}
+
 {% if user %}
-    {% block mainpage %}
+
 
     <link rel="stylesheet" href="/static/contractor_page.css?{% now "U" %}"/>
 
     <div>
 
+    {% if data %}
     <h1>{{data.name}}</h1>
     <h2>{{data.phone}}</h2>
     <h3>{{data.email}}</h3>
     <h4>{{data.cities|print_list}}</h4>
+    {% endif %}
 
     {% if data.image %}
     <img src = "{{data.image.url}}" alt="connect">
     {% endif %}
+    
+    <p>{{user}}</p>
 
     </div>
 
-
-    {% endblock %}
-
-{% else %}
-    <p>Please<a href="/login">Login</a></p> 
-
 {% endif %}
+
+{% if not user %}
+    <p>Please <a href="/login">Login</a></p> 
+{% endif %}
+
+{% endblock %}

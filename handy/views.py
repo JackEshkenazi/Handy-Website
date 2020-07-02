@@ -32,6 +32,7 @@ def dynamic_lookup_view(request,ID):
     is_user= False
 
   if (is_user):
+    print("thats a user")
     contractor = Contractor.objects.get(id = ID)
     
     contractor_city = Contractor.city.through.objects.only("city_id").filter(contractor_id=ID)

@@ -32,6 +32,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('contractor/<int:ID>', views.dynamic_lookup_view, name='dynamic_lookup_view'),
+
+    path('register/', views.register, name='register'),
+
+    #path('login/', views.login, name='login'),
     
     path('', include("handy.urls")), 
 

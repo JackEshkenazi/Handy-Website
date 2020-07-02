@@ -121,3 +121,14 @@ def index(request):
   return render(request, 'index.html', context)
 
 
+def login(request):
+    if request.method == 'GET':
+      request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
+
+    if request.method == 'POST':
+      return HttpResponseRedirect(request.session['login_from'])
+
+def register(request):
+  print("HI")
+
+

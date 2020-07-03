@@ -214,3 +214,11 @@ body {
 	opacity: 0.5;
 	font-weight: bolder;
 	}
+
+.login {
+	margin:auto;
+	margin-left: 100px;
+	text-decoration: none;
+	color: white;
+	z-index:10000;
+}

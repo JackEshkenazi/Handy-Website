@@ -5,7 +5,9 @@
 
 {% block mainpage %}
 
-    <form method = "post" class = "form-group">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
+
+    <form method = "post" class = "form-group" style='align-items:center;'>
         {% csrf_token %}
         {{form|crispy}}
         <button type="submit" class="btn btn_success"> login </button>

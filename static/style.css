@@ -216,8 +216,11 @@ body {
 	}
 
 .login{
-	top:50px;
+	top:54px;
 	position: absolute;
+	width: 50px;
+	height: 50px;
+	margin-left:150px;
 }
 
 .login > svg:hover{

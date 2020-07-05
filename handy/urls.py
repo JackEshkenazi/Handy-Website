@@ -22,6 +22,8 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
+    path('register/', views.register, name='register'),
+
     path('contractor/<int:ID>', dynamic_lookup_view, name='dynamic_lookup_view'),
 
     path(

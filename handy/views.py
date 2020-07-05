@@ -129,6 +129,11 @@ def login(request):
       return HttpResponseRedirect(request.session['login_from'])
 
 def register(request):
-  print("HI")
+
+  context={
+    "data":None
+  }
+
+  return render(request, 'registration.html', context)
 
 

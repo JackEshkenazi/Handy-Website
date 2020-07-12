@@ -5,8 +5,8 @@ body {
 }
 
 .hold {
-	padding-top: 150px;
 	z-index:0;
+	padding-bottom:150px;
  }
 
 .logo{

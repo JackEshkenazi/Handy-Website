@@ -134,6 +134,6 @@ def register(request):
     "data":None
   }
 
-  return render(request, 'registration.html', context)
+  return render(request, 'registration/registration.html', context)
 
 

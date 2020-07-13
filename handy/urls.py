@@ -26,6 +26,8 @@ urlpatterns = [
 
     path('contractor/<int:ID>', dynamic_lookup_view, name='dynamic_lookup_view'),
 
+    path('profile/', views.profile, name='profile'),
+
     path(
     'admin/password_reset/',auth_views.PasswordResetView.as_view(),
     name='admin_password_reset',

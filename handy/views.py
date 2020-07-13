@@ -6,6 +6,8 @@ from django.db.models.functions import Concat
 from django.db.models import Aggregate, CharField, Value
 from django.db import connection
 from django.db.models import Q
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
 
 class Card:
   name: str
@@ -122,19 +124,17 @@ def index(request):
 
 
 def login(request):
-
-  context={
-    "data":None
-  }
-
-  if request.user.is_authenticated:
-    is_user = True
-
-    return render(request, 'account.html',context)
-
-  else:
-    is_user= False
-    return render(request, 'registration/login.html',context)
+  if request.method == 'POST':
+    username = request.POST['username']
+    password =  request.POST['password']
+    post = User.objects.filter(username=username)
+    if post:
+      username = request.POST['username']
+      request.session['username'] = username
+      return redirect("profile")
+    else:
+      return render(request, 'registration/login.html', {})
+  return render(request, 'registration/login.html', {})
 
 def register(request):
 
@@ -144,4 +144,11 @@ def register(request):
 
   return render(request, 'registration/registration.html', context)
 
+def profile(request):
+  if request.session.has_key('username'):
+    posts = request.session['username']
+    query = User.objects.filter(username=posts) 
+    return render(request, 'profile.html', {"query":query})
+  else:
+    return render(request, 'registration/login.html', {})
 

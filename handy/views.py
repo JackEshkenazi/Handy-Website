@@ -123,17 +123,18 @@ def index(request):
 
 def login(request):
 
+  context={
+    "data":None
+  }
+
   if request.user.is_authenticated:
     is_user = True
 
-    return render(request, 'profile.html',context)
+    return render(request, 'account.html',context)
 
   else:
     is_user= False
-    if request.method == 'GET':
-      request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
-    if request.method == 'POST':
-      return HttpResponseRedirect(request.session['login_from'])
+    return render(request, 'registration/login.html',context)
 
 def register(request):
 

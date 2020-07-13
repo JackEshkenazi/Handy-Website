@@ -20,3 +20,7 @@ h3{
 h4{
     margin-bottom:(var(--height));
 }
+
+.login_message {
+    text-align: center;
+}

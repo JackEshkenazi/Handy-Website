@@ -122,9 +122,16 @@ def index(request):
 
 
 def login(request):
+
+  if request.user.is_authenticated:
+    is_user = True
+
+    return render(request, 'profile.html',context)
+
+  else:
+    is_user= False
     if request.method == 'GET':
       request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
-
     if request.method == 'POST':
       return HttpResponseRedirect(request.session['login_from'])
 

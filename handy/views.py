@@ -124,17 +124,20 @@ def index(request):
 
 
 def login(request):
-  if request.method == 'POST':
-    username = request.POST['username']
-    password =  request.POST['password']
-    post = User.objects.filter(username=username)
-    if post:
+  if request.user.is_authenticated:
+    if request.method == 'POST':
       username = request.POST['username']
-      request.session['username'] = username
-      return redirect("profile")
-    else:
-      return render(request, 'registration/login.html', {})
-  return render(request, 'registration/login.html', {})
+      password =  request.POST['password']
+      post = User.objects.filter(username=username)
+      if post:
+        username = request.POST['username']
+        request.session['username'] = username
+        return redirect("profile")
+      else:
+        return render(request, 'registration/login.html', {})
+    return render(request, 'registration/login.html', {})
+  else:
+    return redirect("profile")
 
 def register(request):
 

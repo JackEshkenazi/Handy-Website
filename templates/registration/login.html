@@ -8,6 +8,7 @@
 <form method = "post" class = "form-group" style='align-items:center;'>
     {% csrf_token %}
     {{form|crispy}}
+    
     <div class="form-group">
         <label >User Name</label>
         <div class="input"><input type="text" name="username" required="required"></div>
@@ -21,6 +22,7 @@
 
     <button type="submit" class="btn btn_success"> login </button>
     <p> Don't have an account? Create one <a href="/register">here</a></p>
+
 </form>
 
 {% endblock %}

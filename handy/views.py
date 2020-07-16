@@ -137,7 +137,7 @@ def login(request):
         return render(request, 'registration/login.html', {})
     return render(request, 'registration/login.html', {})
   else:
-    return redirect("profile")
+    return render(request, 'profile.html', {"query":query})
 
 def register(request):
 

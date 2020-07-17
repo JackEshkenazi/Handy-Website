@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'users.apps.UsersConfig',#could also just put "users" like for handy because thats the name property for the class
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

@@ -134,7 +134,7 @@ def login(request):
         request.session['username'] = username
         return redirect("profile")
       else:
-        return redirect("profile")
+        return render(request, 'registration/login.html', {})
     return render(request, 'registration/login.html', {})
   else:
     return redirect("profile")
@@ -154,5 +154,4 @@ def profile(request):
     return render(request, 'profile.html', {"query":query})
   else:
     return render(request, 'registration/login.html', {})
-    print("HI")
 

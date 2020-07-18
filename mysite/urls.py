@@ -20,6 +20,7 @@ from django.conf import settings
 
 from handy import views
 from handy import contact
+from users import views as user_views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -33,7 +34,7 @@ urlpatterns = [
 
     path('contractor/<int:ID>', views.dynamic_lookup_view, name='dynamic_lookup_view'),
 
-    path('register/', views.register, name='register'),
+    path('register/', user_views.register, name='register'),
 
     path('login/', views.login, name='login'),
     

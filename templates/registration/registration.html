@@ -28,7 +28,14 @@
       <button type="submit" class="registerbtn">Register</button>
       -->
 
-      {{ form|crispy }}
+
+      {{ form.username|as_crispy_field }}
+
+      {{ form.email|as_crispy_field }}
+
+      {{ form.password1|as_crispy_field }}
+
+      {{ form.password2|as_crispy_field }}
 
       <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
       <button type="submit" class="registerbtn">Register</button>

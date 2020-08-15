@@ -6,7 +6,7 @@ class UserRegisterForm(UserCreationForm):
     #email = forms.EmailField()
     #only doesnt work when its specifically an EmailField
 
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ''}))
 
     class Meta:
         model = User

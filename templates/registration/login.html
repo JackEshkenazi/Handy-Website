@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
 
-{% load custom_tags %}
 {% load crispy_forms_tags %}
+
+{% load static %}
+
+{% load custom_tags %}
 
 {% block mainpage %}
 
+<link rel="stylesheet" href="/static/login.css?{% now "U" %}"/>
+
+<form method = "POST">
+  {% csrf_token%}
+    <fieldset class="registration_container">
+
+      {{ form|crispy }}
+
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <button type="submit" class="registerbtn">Login</button>
+
+    </fieldset>
+  
+    <div class="container_signin">
+      <p>Need an account? <a href="/register">Sign up now</a>.</p>
+    </div>
+
+</form>
+
+{% endblock %}
+
+<!--
 <form method = "post" class = "form-group" style='align-items:center;'>
-    {% csrf_token %}
-    {{form|crispy}}
     
     <div class="form-group">
         <label >User Name</label>
@@ -24,5 +47,4 @@
     <p> Don't have an account? Create one <a href="/register">here</a></p>
 
 </form>
-
-{% endblock %}
+-->

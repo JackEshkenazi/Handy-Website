@@ -148,7 +148,7 @@ def register(request):
 
   return render(request, 'registration/registration.html', context)
 
-'''
+
 def profile(request):
   if request.session.has_key('username'):
     posts = request.session['username']
@@ -156,4 +156,4 @@ def profile(request):
     return render(request, 'profile.html', {"query":query})
   else:
     return render(request, 'registration/login.html', {})
-'''
+
